@@ -1200,7 +1200,6 @@ class LoadRGBTImagesAndLabels(LoadImagesAndLabels):
         hyp = self.hyp
         mosaic = self.mosaic and random.random() < hyp["mosaic"]
         if mosaic:
-            raise NotImplementedError('Please make "mosaic" augmentation work!')
 
             # TODO: Load mosaic
             img, labels = self.load_mosaic(index)
@@ -1227,8 +1226,7 @@ class LoadRGBTImagesAndLabels(LoadImagesAndLabels):
                     labels[:, 1:] = xywhn2xyxy(labels[:, 1:], ratio[0] * w, ratio[1] * h, padw=pad[0], padh=pad[1])
 
                 if self.augment:
-                    raise NotImplementedError('Please make data augmentation work!')
-
+                    
                     img, labels = random_perspective(
                         img,
                         labels,
